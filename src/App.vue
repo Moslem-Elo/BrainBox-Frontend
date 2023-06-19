@@ -2,7 +2,7 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
@@ -12,11 +12,11 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
 
       <div>
-        <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+
       </div>
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/about">Connection to Backend</RouterLink>
       </nav>
     </div>
   </header>
