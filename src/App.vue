@@ -17,6 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Connection to Backend</RouterLink>
+        <RouterLink to="/question">Questions</RouterLink>
       </nav>
     </div>
   </header>

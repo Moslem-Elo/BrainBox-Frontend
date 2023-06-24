@@ -1,8 +1,6 @@
 <template>
   <div class="about">
     <h1>This is an Quiz page</h1>
-  </div>
-  <div>
     <table>
       <thead>
       <tr>
@@ -13,27 +11,20 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-if="quiz.length === 0">
-        <td colspan="2">No quiz yet</td>
-      </tr>
-      <tr>
-        <td>{{quiz.titleField}}</td>
-        <td>{{quiz.difficultyField}}</td>
-        <td>{{quiz.themeField}}</td>
-      </tr>
-      <tr>
-        <td>{{ titleField }}</td>
-        <td>{{ difficultyField }}</td>
-        <td>{{themeField}}</td>
+      <tr v-for="q in quiz" :key="q.id">
+        <td>{{ q.title }}</td>
+        <td>{{ q.difficulty}}</td>
+        <td>{{ q.theme }}</td>
+        <td>{{ q.question }}</td>
       </tr>
       </tbody>
     </table>
   </div>
 </template>
+
 <script>
-import QuizFrom from "@/components/QuizForm.vue";
 export default {
-  data () {
+  data() {
     return {
       quiz: [],
       titleField: '',
@@ -42,23 +33,20 @@ export default {
       questionField: '',
     }
   },
-  getQuizq(){
-    console.log("Yeer!!!")
-    const endpoint = 'http://localhost:8080/quiz/get-all'
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    }
-    console.log("check")
-    fetch(endpoint, requestOptions)
+  mounted() {
+    const endpoint = 'http://localhost:8080/quiz/get-all';
+    fetch(endpoint)
         .then(response => response.json())
-        .then(result => result.forEach(quizzes => {
-          this.quiz.push(quizzes)
-        }));
+        .then(result => {
+          this.quiz = result;
+        })
+        .catch(error => {
+          console.error('Fehler beim Abrufen der Quizdaten:', error);
+        });
   }
 }
-
 </script>
+
 <style>
 @media (min-width: 1024px) {
   .about {
@@ -67,4 +55,14 @@ export default {
     align-items: center;
   }
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
 </style>
+
