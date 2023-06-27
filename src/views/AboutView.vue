@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an Quiz page</h1>
+    <h3>All Quizzes</h3>
     <table>
       <thead>
       <tr>
@@ -13,9 +13,15 @@
       <tbody>
       <tr v-for="q in quiz" :key="q.id">
         <td>{{ q.title }}</td>
-        <td>{{ q.difficulty}}</td>
+        <td>{{ q.difficulty }}</td>
         <td>{{ q.theme }}</td>
-        <td>{{ q.question }}</td>
+        <td>
+          <ul>
+            <li v-for="question in q.question" :key="question.id">
+              {{ question.text }}
+            </li>
+          </ul>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -48,21 +54,17 @@ export default {
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 
 table {
   border-collapse: collapse;
+  vertical-align: bottom;
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid #fffefe;
   padding: 8px;
 }
 </style>
+
 

@@ -13,7 +13,7 @@
         <td>
           <ul>
             <li v-for="answer in item.answers" :key="answer.id">
-              {{ answer.answerText }} ({{ answer.correct ? 'Correct' : 'Incorrect' }})
+              {{ answer.answerText }}
             </li>
           </ul>
         </td>
@@ -47,5 +47,5 @@ export default {
 </script>
 
 <style scoped>
-/* Hier kannst du bei Bedarf dein eigenes CSS für die Tabelle definieren */
+
 </style>
