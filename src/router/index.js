@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import QuestionView from "@/views/QuestionView.vue";
+import QuestionView from "@/views/QuizAnswer.vue";
+import QuizAnswer from "@/views/QuizAnswer.vue";
 
 
 const router = createRouter({
@@ -23,6 +24,12 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/quiz/:id/answer',
+      name: 'QuizAnswer',
+      component: QuizAnswer, // Komponente für das Quiz-Beantwortungsformular
+      props: true
     }
   ]
 })

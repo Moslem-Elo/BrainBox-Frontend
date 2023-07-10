@@ -62,7 +62,7 @@ table {
 }
 
 th, td {
-  border: 1px solid #fffefe;
+  border: 1px solid #ffffff;
   padding: 8px;
 }
 </style>

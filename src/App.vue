@@ -7,8 +7,7 @@
         <div></div>
         <nav>
           <router-link to="/">Home</router-link>
-          <router-link to="/about">All Quizzes</router-link>
-          <router-link to="/question">Questions</router-link>
+          <router-link to="/about">Create Quiz</router-link>
         </nav>
       </div>
     </header>
@@ -53,8 +52,15 @@ nav {
 .content {
   margin-top: 60px; /* Höhe der fixierten Navigationsleiste */
 }
+.router-link-exact-active {
+    color: #ffffff; /* Hier die gewünschte Farbe einfügen */
+}
+.router-link{
+    color: #ffffff;
+}
 
 .router-link-exact-active {
   font-weight: bold;
+    color: white;
 }
 </style>
